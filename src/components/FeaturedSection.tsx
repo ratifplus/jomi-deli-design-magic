@@ -4,6 +4,7 @@ import caprese from "@/assets/caprese-bagel.jpg";
 import espresso from "@/assets/espresso.jpg";
 import tea from "@/assets/tea.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BotanicalDivider } from "@/components/BotanicalDecor";
 
 const favorites = [
   { name: "Pulled Pork", desc: "Smoky BBQ, coleslaw, roasted onions", price: "€10.90", img: pulledPork },
@@ -17,21 +18,20 @@ const FeaturedSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section ref={ref} className="section-padding bg-secondary">
+    <section ref={ref} className="section-padding bg-secondary relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <p className={`text-primary font-body text-sm tracking-[0.3em] uppercase mb-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              Our Selection
-            </p>
-            <h2 className={`font-display text-3xl md:text-4xl font-bold transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              Team's Choice
-            </h2>
-          </div>
+        <div className="text-center mb-4">
+          <p className={`text-primary font-body text-sm tracking-[0.3em] uppercase mb-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            Our Selection
+          </p>
+          <h2 className={`font-display text-3xl md:text-4xl font-bold transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            Team's Choice
+          </h2>
         </div>
 
-        {/* Circular cards row like reference */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <BotanicalDivider />
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-8">
           {favorites.map((item, i) => (
             <div
               key={item.name}
