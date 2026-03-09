@@ -29,9 +29,6 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="JOMI DELI logo" className="h-10 w-auto rounded" />
-          <span className="font-display text-xl font-bold tracking-wider text-foreground">
-            JOMI<span className="text-primary">_</span>DELI
-          </span>
         </a>
 
         {/* Desktop */}
