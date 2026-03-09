@@ -1,44 +1,49 @@
 import pulledPork from "@/assets/pulled-pork-bagel.jpg";
 import reuben from "@/assets/reuben-bagel.jpg";
 import caprese from "@/assets/caprese-bagel.jpg";
+import espresso from "@/assets/espresso.jpg";
+import tea from "@/assets/tea.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const favorites = [
-  { name: "Pulled Pork Bagel", desc: "Smoky BBQ pulled pork, coleslaw, roasted onions", price: "€10.90", img: pulledPork },
-  { name: "Reuben Style Bagel", desc: "Pastrami, sauerkraut, Dijon mayo, alpine cheese", price: "€12.90", img: reuben },
-  { name: "Caprese Bagel", desc: "Mozzarella, pesto, tomatoes, balsamic reduction", price: "€9.90", img: caprese },
+  { name: "Pulled Pork", desc: "Smoky BBQ, coleslaw, roasted onions", price: "€10.90", img: pulledPork },
+  { name: "Reuben Style", desc: "Pastrami, sauerkraut, alpine cheese", price: "€12.90", img: reuben },
+  { name: "Caprese", desc: "Mozzarella, pesto, balsamic", price: "€9.90", img: caprese },
+  { name: "Espresso", desc: "Rich, bold, freshly pulled", price: "€2.10", img: espresso },
+  { name: "Artisan Tea", desc: "Herbal blends, served hot", price: "€3.40", img: tea },
 ];
 
 const FeaturedSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section ref={ref} className="section-padding bg-background">
+    <section ref={ref} className="section-padding bg-secondary">
       <div className="max-w-6xl mx-auto">
-        <p className={`text-primary font-body text-sm tracking-[0.3em] uppercase text-center mb-3 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Our Selection
-        </p>
-        <h2 className={`font-display text-4xl md:text-5xl font-bold text-center mb-16 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Customer Favorites
-        </h2>
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <p className={`text-primary font-body text-sm tracking-[0.3em] uppercase mb-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+              Our Selection
+            </p>
+            <h2 className={`font-display text-3xl md:text-4xl font-bold transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+              Team's Choice
+            </h2>
+          </div>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Circular cards row like reference */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
           {favorites.map((item, i) => (
             <div
               key={item.name}
-              className={`group bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
-              style={{ transitionDelay: `${200 + i * 150}ms` }}
+              className={`text-center group transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+              style={{ transitionDelay: `${200 + i * 100}ms` }}
             >
-              <div className="overflow-hidden aspect-square">
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="mx-auto w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-border group-hover:border-primary transition-colors duration-500 mb-4">
+                <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-display text-xl font-semibold">{item.name}</h3>
-                  <span className="text-primary font-body font-bold text-lg">{item.price}</span>
-                </div>
-                <p className="text-muted-foreground font-body text-sm">{item.desc}</p>
-              </div>
+              <h3 className="font-display text-base font-semibold mb-1">{item.name}</h3>
+              <p className="text-muted-foreground font-body text-xs mb-1">{item.desc}</p>
+              <span className="text-primary font-body font-bold text-sm">{item.price}</span>
             </div>
           ))}
         </div>
