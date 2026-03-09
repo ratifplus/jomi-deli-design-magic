@@ -1,5 +1,6 @@
 import { MapPin, Clock, Euro } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BotanicalTopLeft, BotanicalBottomRight } from "@/components/BotanicalDecor";
 
 const hours = [
   { day: "Monday", time: "Closed" },
@@ -15,7 +16,9 @@ const VisitSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="visit" ref={ref} className="section-padding bg-background">
+    <section id="visit" ref={ref} className="section-padding bg-background relative overflow-hidden">
+      <BotanicalTopLeft />
+      <BotanicalBottomRight />
       <div className="max-w-6xl mx-auto">
         <p className={`text-primary font-body text-sm tracking-[0.3em] uppercase text-center mb-3 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           Find Us

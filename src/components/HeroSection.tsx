@@ -1,12 +1,11 @@
-import heroBg from "@/assets/hero-bg.jpg";
 import pulledPork from "@/assets/pulled-pork-bagel.jpg";
+import { BotanicalTopLeft, BotanicalBottomRight } from "@/components/BotanicalDecor";
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Decorative accent circles */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/5 blur-3xl" />
+      <BotanicalTopLeft />
+      <BotanicalBottomRight />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-2 gap-8 items-center relative z-10 pt-24 md:pt-0">
         {/* Left: Text */}
@@ -22,10 +21,10 @@ const HeroSection = () => {
             Handcrafted sourdough bagels, premium coffee, and authentic deli flavors in the heart of Stuttgart.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <a href="#menu" className="px-8 py-4 bg-primary text-primary-foreground font-body font-semibold tracking-wide hover:brightness-110 transition-all rounded-full">
+            <a href="/menu" className="px-8 py-4 bg-primary text-primary-foreground font-body font-semibold tracking-wide hover:brightness-110 transition-all rounded-full">
               View Menu
             </a>
-            <a href="#visit" className="px-8 py-4 border border-border text-foreground font-body font-semibold tracking-wide hover:border-primary hover:text-primary transition-all rounded-full">
+            <a href="#visit" className="px-8 py-4 border border-primary text-foreground font-body font-semibold tracking-wide hover:bg-primary hover:text-primary-foreground transition-all rounded-full">
               Visit Us
             </a>
           </div>
@@ -34,17 +33,15 @@ const HeroSection = () => {
         {/* Right: Large food image */}
         <div className="relative flex justify-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
           <div className="relative w-[90%] md:w-full max-w-lg">
-            {/* Glow behind image */}
-            <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-90" />
             <img
               src={pulledPork}
               alt="Artisan bagel"
               className="relative w-full aspect-square object-cover rounded-3xl shadow-2xl border border-border"
             />
             {/* Floating badge */}
-            <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-xl">
-              <p className="font-display text-lg font-bold text-primary">€10.90</p>
-              <p className="font-body text-xs text-muted-foreground">Pulled Pork Bagel</p>
+            <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground rounded-2xl px-5 py-3 shadow-xl">
+              <p className="font-display text-lg font-bold">€10.90</p>
+              <p className="font-body text-xs opacity-80">Pulled Pork Bagel</p>
             </div>
           </div>
         </div>
